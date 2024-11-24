@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native';
 import { Link } from 'expo-router';
 import { StatusBar } from 'react-native';
+import { useRouter } from 'expo-router';
 
 import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Image } from 'react-native';
@@ -10,6 +11,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 export default function signUp () {
+
+    const router = useRouter();
+
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -35,20 +39,10 @@ export default function signUp () {
         <View style={styles.haveAccSection}>
           <Text style={styles.haveAccText}>Already have an account?</Text>
           <Link href="/" asChild>
-          <Button onPress={() => console.log('Login')} labelStyle={styles.logInButtonText}>LOGIN</Button>
+          <Button onPress={() => router.push('index')} labelStyle={styles.logInButtonText}>LOGIN</Button>
           </Link>
         </View>
 
-        <View style={styles.orSection}>
-          <Divider style={styles.line} />
-          <Text style={styles.orText}>OR</Text>
-          <Divider style={styles.line} />
-        </View>
-
-        
-            <Button icon={() => <FontAwesome name="google" size={24} style={styles.icon} />} mode="outlined" style={styles.socialButton} labelStyle={styles.socialButtonText} onPress={() => console.log('Sign Up with Google pressed')}>Sign Up with Google</Button>
-
-            <Button icon={() => <FontAwesome name="facebook" size={24} style={styles.icon} />} mode="outlined" style={styles.socialButton} labelStyle={styles.socialButtonText} onPress={() => console.log('Sign Up with Facebook pressed')}>Sign Up with Facebook</Button>
 
       </View>
     </PaperProvider>

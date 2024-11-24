@@ -1,6 +1,6 @@
 import { View } from 'react-native';
-import { Link } from 'expo-router';
 import { StatusBar } from 'react-native';
+import { useRouter } from 'expo-router';
 
 import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
@@ -10,6 +10,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 export default function Page() {
+
+  const router = useRouter();
+
   const PageLoginScreen = ({ navigation }) => {
     const [isRemembered, setIsRemembered] = useState(false);
     const [email, setEmail] = useState('');
@@ -34,34 +37,18 @@ export default function Page() {
           <Text style={styles.checkLabel}>Remember Me</Text>
         </View>
 
-        <Button mode="contained" onPress={() => console.log('Login pressed')} style={styles.loginButton} buttonColor="#AB644B" textColor="#fff">Login</Button>
+        <Button mode="contained" onPress={() => router.push('dashboard')} style={styles.loginButton} buttonColor="#AB644B" textColor="#fff">Login</Button>
 
-        <Link href="/passwordRecovery" asChild>
-        <TouchableOpacity style={styles.forgotButton} onPress={() => console.log('Forgot Password pressed')}>
+        <TouchableOpacity style={styles.forgotButton} onPress={() => router.push('passwordRecovery')}>
           <Text style={styles.forgotButtonText}>Forgot Password?</Text>
         </TouchableOpacity>
-        </Link>
-
-        <View style={styles.orSection}>
-          <Divider style={styles.line} />
-          <Text style={styles.orText}>OR</Text>
-          <Divider style={styles.line} />
-        </View>
-
-       
-        <Button mode="outlined" icon={() => <FontAwesome name="google" size={20} color="#AB644B" />} style={styles.socialButton} textColor="#AB644B">Login with Google</Button>
-      
-
-        
-        <Button mode="outlined" icon={() => <FontAwesome name="facebook" size={20} color="#AB644B" />} onPress={() => console.log('Login with Facebook pressed')} style={styles.socialButton} textColor="#AB644B">Login with Facebook</Button>
 
 
         <View style={styles.addSection}>
           <Text style={styles.addText}>Don't have an account?</Text>
-          <Link href="/signUp" asChild><TouchableOpacity onPress={() => console.log('Sign Up pressed')}>
+          <TouchableOpacity onPress={() => router.push('signUp')}>
             <Text style={styles.signUpButtonText}> SIGN UP</Text>
           </TouchableOpacity>
-          </Link>
         </View>
       </SafeAreaView>
     </PaperProvider>
@@ -76,6 +63,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#8ecae6',
     padding: 16,
+    paddingHorizontal: 20,
+    justifyContent: 'center',
   },
   avatar: {
     width: 100,
@@ -83,7 +72,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignSelf: 'center',
     marginBottom: 30,
-    marginTop: 15,
   },
   login: {
     fontSize: 25,

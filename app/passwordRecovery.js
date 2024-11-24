@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
-import { Link } from 'expo-router';
 import { StatusBar } from 'react-native';
+import { useRouter } from 'expo-router';
 
 import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, Image } from 'react-native';
@@ -9,6 +9,7 @@ import { Provider as PaperProvider, TextInput, Button, Checkbox, Divider } from 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 export default function PasswordRecoveryScreen () {
+    const router = useRouter();
     const [email, setEmail] = useState('');
 
     const handleRecoverPassword = () => {
@@ -24,9 +25,7 @@ export default function PasswordRecoveryScreen () {
 
         <Button mode="contained" onPress={handleRecoverPassword} style={styles.recButton}>Recover Password</Button>
         
-        <Link href="/" asChild>
-        <Button mode="contained" style={styles.backLogin} onPress={() => console.log('Back to Login Pressed')} labelStyle={styles.backLoginText}>Back to Login</Button>
-        </Link>
+        <Button mode="contained" style={styles.backLogin} onPress={() => router.back()} labelStyle={styles.backLoginText}>Back to Login</Button>
         
       </SafeAreaView>
     </PaperProvider>
