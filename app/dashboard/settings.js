@@ -6,7 +6,7 @@ import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { TextInput, Button, Checkbox, Divider } from 'react-native-paper';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const index = () => {
+const settings = () => {
   return (
     <PaperProvider>
       <SafeAreaView>
@@ -16,7 +16,7 @@ const index = () => {
   )
 }
 
-export default index
+export default settings
 
 const styles = StyleSheet.create ({
   IndexText: {

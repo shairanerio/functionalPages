@@ -7,16 +7,20 @@ const _layout = () => {
       <Drawer >
         <Drawer.Screen
           
-          name="tabs"
+          name="(tabs)"
           options={{
             drawerLabel: 'Home',
-            title: 'overview',
+            title: 'Home',
           }}
         /> 
-        <Drawer.Screen name='index' options={{
-            drawerLabel: 'second',
-            title: 'over',
+        <Drawer.Screen name='settings' options={{
+            drawerLabel: 'Settings',
+            title: 'Settings',
           }}/>
+
+        <Drawer.Screen name='Log out' options={{
+          drawerLabel: 'Log Out',
+        }}/>
       </Drawer>
     </GestureHandlerRootView>
   )
