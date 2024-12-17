@@ -1,12 +1,24 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+import { PaperProvider } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const profile = () => {
   return (
-    <View>
-      <Text>profile</Text>
-    </View>
+    <PaperProvider>
+      <SafeAreaView>
+      <Text style={styles.IndexText}>Hi I'm Profile :)</Text>
+      </SafeAreaView>
+    </PaperProvider>
   )
 }
 
 export default profile
+
+const styles = StyleSheet.create ({
+  IndexText: {
+    paddingHorizontal: 20,
+    justifyContent: 'center',
+  }
+})
