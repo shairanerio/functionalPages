@@ -6,11 +6,6 @@ const _layout = () => {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer >
 
-        <Drawer.Screen name="propayl" options={{
-            drawerLabel: 'Profile Pic',
-            title: 'Profile Pic',
-          }}
-          />
         <Drawer.Screen name="(tabs)" options={{
             drawerLabel: 'Home',
             title: 'Home',
